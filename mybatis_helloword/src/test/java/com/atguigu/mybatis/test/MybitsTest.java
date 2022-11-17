@@ -20,14 +20,18 @@ public class MybitsTest {
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         //获取 SqlSessionFactory对象
         SqlSessionFactory SqlSessionFactory = sqlSessionFactoryBuilder.build(is);
-        //获取sql的会话对象SqlSession，是mybatis提供的操作数据库的对象
-        SqlSession sqlSession = SqlSessionFactory.openSession();
+        //获取sql的会话对象SqlSession(不会自动提交事务)，是mybatis提供的操作数据库的对象
+        //SqlSession sqlSession = SqlSessionFactory.openSession();
+        //获取sql的会话对象SqlSession(会自动提交事务)，是mybatis提供的操作数据库的对象
+        SqlSession sqlSession = SqlSessionFactory.openSession(true);
         //获取UserMapper的代理实现对象
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         //调用mapper接口中的方法，实现添加用户信息功能
         int result = mapper.insertUser();
+        //调用mapper接口中的方法，实现删除用户信息功能
+        //int result = mapper.deleteUser();
         System.out.println("结果：" +result);
-        sqlSession.commit();
+        //sqlSession.commit();
         sqlSession.close();
 
         

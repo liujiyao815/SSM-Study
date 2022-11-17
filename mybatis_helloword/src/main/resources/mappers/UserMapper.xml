@@ -13,5 +13,9 @@
     <insert id="insertUser">
         insert into t_user values(null,'admin','123456',11,'男','123456@qq.com')
     </insert>
+    <!--int deleteUser()-->
+    <delete id="deleteUser">
+        delete from t_user where id = 5;
+    </delete>
 
 </mapper>
