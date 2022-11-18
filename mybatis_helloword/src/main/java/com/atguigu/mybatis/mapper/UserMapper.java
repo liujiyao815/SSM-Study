@@ -1,7 +1,19 @@
 package com.atguigu.mybatis.mapper;
 
 public interface UserMapper {
-
+    /**
+     * 添加用户信息
+     * @return
+     */
     int insertUser();
-    int deleteUser();
+
+    /**
+     * 删除用户信息
+     * @return
+     */
+    void deleteUser();
+    /**
+     * 修改用户信息
+     */
+    void updateUser();
 }
